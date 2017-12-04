@@ -28,7 +28,7 @@ class PortailController extends Controller
 		 $resultat=$request->get('categorieSelectionnee');
 		 $response = new JsonResponse();
          $response->setData(['resultat'=>$resultat]);
-         return $response;
+         return $rsponse;
 		}
 
 	  $titre="Carte des menus";
