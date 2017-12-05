@@ -14,13 +14,15 @@
 		<div class=" small-6 medium-4 large-4">
 		<p>Merci de choisir une catégorie parmi la liste : </p>
 		<select onchange="selectionCategorie(this.value);">
-		 <option name="pizza" value="Pizza">Pizza</option>
-		 <option name="boisson" value="Boisson">Boisson</option>
-		 <option name="dessert" value="Dessert">Dessert</option>
+		  {% for categorie in categories %}
+		   <option name="{{ categorie.type}}" value="{{ categorie.type}}">{{ categorie.type}}</option>
+		  {% endfor %}
 	    </select>
 		</div>
 	   </div>
 	</div>
+
+
   <div class="grid-container grid-container-padded">
     <div class="grid-x">
 	  <div id="resultatAjax" class="cell"></div>
