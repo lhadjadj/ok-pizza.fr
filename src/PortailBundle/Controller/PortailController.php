@@ -33,14 +33,15 @@ class PortailController extends Controller
 		 $resultat=$request->get('categorieSelectionnee');
 
 		// je prépare la requete SQL
-		$requeteListe="select nom, description, prix from produits where type='". $resultat ."'";
+		$requetePlats="select nom, description, prix from produits where type='". $resultat ."'";
 		// j'execute la requête et je retourne les valeurs dans un tableau Asscoiatif
-		$afficheProduits= $db->query($requeteListe)->fetchAll(PDO::FETCH_ASSOC);
+		$affichePlats= $db->query($requetePlats)->fetchAll(PDO::FETCH_ASSOC);
 
 		 $response = new JsonResponse();
-         $response->setData(['resultat'=>$afficheProduits]);
+         $response->setData(['resultat'=>$affichePlats]);
          return $response;
 		}
+
 
 	  // La requêtes n'est de type AJax. Ouverture de la page
 	  $titre="Carte des menus";

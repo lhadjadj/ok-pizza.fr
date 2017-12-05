@@ -69,8 +69,21 @@
 				  timeout: 3000,
 				  success: function(response)
 					  {
-						console.log($(response.resultat).toArray().length);
-						console.log(response.resultat['0']);
+						// Affiche l'objet response
+						console.log("Exemple 1 : ", response);
+
+						// je compte le nombre d'objet dans mon tableau
+						console.log("nombre de valeur : ", $(response.resultat).toArray().length);
+
+						// Affiche l'objet response.resultat
+						  console.log("Exemple 2 : ", response.resultat);
+
+						// Affiche le premier tableau de l'objet resulat
+						console.log("Exemple 3 : ", response.resultat['0']);
+
+						// Affiche le prix du premier tableau de valeur
+						console.log("Exemple 4 : ", response.resultat['0']['prix']);
+
 					  },
 				  error: function()
 					  { $("#resultatAjax").html("<div class=\"callout alert\">\n\
