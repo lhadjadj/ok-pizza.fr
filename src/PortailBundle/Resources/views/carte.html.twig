@@ -67,7 +67,11 @@
 				  data: data,
 				  dataType: 'json',
 				  timeout: 3000,
-				  success: function(response) {console.log(response);},
+				  success: function(response)
+					  {
+						console.log($(response.resultat).toArray().length);
+						console.log(response.resultat['0']);
+					  },
 				  error: function()
 					  { $("#resultatAjax").html("<div class=\"callout alert\">\n\
 												  <p style='color:#85090B;'>\n\
@@ -76,6 +80,7 @@
 												  </div>");
 					  }
 				});
+
 	  }
 	</script>
   </body>

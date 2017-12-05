@@ -24,20 +24,27 @@ class PortailController extends Controller
      */
     public function carteMenuAction(Request $request)
     {
+	  // j'ouvre la base de données
+	  $db = new PDO("sqlite:/opt/DATA/SQLITE/ok-pizza.db");
+
 	  //Test si la requête est de type AJAX
 	  if ($request->get('categorieSelectionnee')!=null)
 		{
 		 $resultat=$request->get('categorieSelectionnee');
+
+		// je prépare la requete SQL
+		$requeteListe="select nom, description, prix from produits where type='". $resultat ."'";
+		// j'execute la requête et je retourne les valeurs dans un tableau Asscoiatif
+		$afficheProduits= $db->query($requeteListe)->fetchAll(PDO::FETCH_ASSOC);
+
 		 $response = new JsonResponse();
-         $response->setData(['resultat'=>$resultat]);
+         $response->setData(['resultat'=>$afficheProduits]);
          return $response;
 		}
 
 	  // La requêtes n'est de type AJax. Ouverture de la page
 	  $titre="Carte des menus";
 
-	  // j'ouvre la base de données
-	  $db = new PDO("sqlite:/opt/DATA/SQLITE/ok-pizza.db");
 	  // je prépare la requete SQL
 	  $requeteType="select distinct type from produits order by type asc";
       // j'execute la requête et je retourne les valeurs dans un tableau Asscoiatif
