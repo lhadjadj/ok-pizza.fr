@@ -30,20 +30,6 @@
   </div>
 
 <br /><br />
-{# <div class="product-card">
-  <div class="product-card-thumbnail">
-    <a href="#"><img src="https://placehold.it/180x180"/></a>
-  </div>
-  <h2 class="product-card-title"><a href="#">Product Name</a></h2>
-  <span class="product-card-desc">Product Description</span>
-  <span class="product-card-price">$9.99</span><span class="product-card-sale">$12.99</span>
-  <div class="product-card-colors">
-    <button href="#" class="product-card-color-option"><img src="https://placehold.it/30x30"/></button>
-    <button href="#" class="product-card-color-option"><img src="https://placehold.it/30x30"/></button>
-    <button href="#" class="product-card-color-option"><img src="https://placehold.it/30x30"/></button>
-    <button href="#" class="product-card-color-option"><img src="https://placehold.it/30x30"/></button>
-  </div>
-</div> #}
 
     <script src="/js/jquery.js"></script>
     <script src="/js/what-input.js"></script>
@@ -70,20 +56,24 @@
 				  success: function(response)
 					  {
 						// Affiche l'objet response
-						console.log("Exemple 1 : ", response);
+						//console.log("Exemple 1 : ", response);
 
 						// je compte le nombre d'objet dans mon tableau
-						console.log("nombre de valeur : ", $(response.resultat).toArray().length);
+					    //console.log("nombre de valeur : ", $(response.resultat).toArray().length);
 
 						// Affiche l'objet response.resultat
-						  console.log("Exemple 2 : ", response.resultat);
+						//console.log("Exemple 2 : ", response.resultat);
 
 						// Affiche le premier tableau de l'objet resulat
-						console.log("Exemple 3 : ", response.resultat['0']);
+						//console.log("Exemple 3 : ", response.resultat['0']);
 
 						// Affiche le prix du premier tableau de valeur
-						console.log("Exemple 4 : ", response.resultat['0']['prix']);
+						//console.log("Exemple 4 : ", response.resultat['0']['prix']);
 
+						// affichage de la page html (afficheStats.html.twig)
+						$("#resultatAjax").html(response);
+
+						//$("resultatAjax").html(response);
 					  },
 				  error: function()
 					  { $("#resultatAjax").html("<div class=\"callout alert\">\n\

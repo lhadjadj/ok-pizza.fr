@@ -33,13 +33,14 @@ class PortailController extends Controller
 		 $resultat=$request->get('categorieSelectionnee');
 
 		// je prépare la requete SQL
-		$requetePlats="select nom, description, prix from produits where type='". $resultat ."'";
+		$requetePlats="select nom, description, prix, image from produits where type='". $resultat ."'";
 		// j'execute la requête et je retourne les valeurs dans un tableau Asscoiatif
 		$affichePlats= $db->query($requetePlats)->fetchAll(PDO::FETCH_ASSOC);
 
 		 $response = new JsonResponse();
          $response->setData(['resultat'=>$affichePlats]);
-         return $response;
+         $response->setData($this->renderView('PortailBundle::affiche.plats.html.twig', ['resultat'=>$affichePlats]));
+		 return $response;
 		}
 
 
